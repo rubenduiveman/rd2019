@@ -1,0 +1,56 @@
+<template>
+  <div id="app">
+    <MainMenu/>
+    <transition name="fade" mode="out-in">
+      <router-view id="content"/>
+    </transition>
+    <Footer v-if="!isAtHome"/>
+  </div>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+
+import Footer from "@/components/Footer.vue";
+import MainMenu from "@/components/MainMenu.vue";
+
+@Component({ components: { Footer, MainMenu } })
+export default class App extends Vue {
+  public get isAtHome(): boolean {
+    return this.$route.name === "home";
+  }
+}
+</script>
+
+<style lang="scss">
+@import "./style/defaults.scss";
+
+.mainmenu {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+}
+
+#app {
+  padding-top: 120px;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100% - 120px);
+}
+
+#content {
+  flex-grow: 1;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.2s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+</style>
