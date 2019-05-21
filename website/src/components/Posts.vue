@@ -3,8 +3,8 @@
     <Section class="post" type="even">
       <Post :id="activePostId"/>
     </Section>
-    <Section  v-if="newer" type="odd">
-      <Summary :data="newer" />
+    <Section v-if="newer" type="odd">
+      <Summary :data="newer"/>
     </Section>
   </div>
 </template>
@@ -55,6 +55,19 @@ export default class Posts extends Vue {
 
   public async beforeMount() {
     this.summaries = await Api.getSummaries();
+  }
+
+ @Watch("startId")
+  private async onIdChanged() {
+    this.activePostId = this.startId;
+  }
+
+  @Watch("currentIndex")
+  private onIndexChanged() {
+    this.$emit("changed", {
+      hasNewer: !!this.newer,
+      hasEarlier: !!this.earlier
+    });
   }
 }
 </script>
