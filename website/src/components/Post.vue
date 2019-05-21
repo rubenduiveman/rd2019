@@ -2,6 +2,7 @@
   <article v-if="post">
     <PostHeader :data="post"/>
     <main v-html="post.content"></main>
+    <aside>liked this post? discuss on twitter</aside>
   </article>
 </template>
 
@@ -16,6 +17,8 @@ import { PostData } from "../logic/models";
 @Component({ components: { PostHeader } })
 export default class Post extends Vue {
   @Prop() private id!: string;
+
+  // TODO: Post footer
 
   private postData: PostData | null = null;
 
