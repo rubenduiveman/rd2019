@@ -1,18 +1,20 @@
 <template>
   <div class="posts">
-    <div class="earlier" v-if="hasEarlier" @click="loadEarlier">Earlier post: {{ earlier.title }}</div>
     <Section class="post" type="even">
       <Post :id="activePostId"/>
     </Section>
-    <div class="newer" v-if="hasNewer" @click="loadNewer">Newer post: {{ newer.title }}</div>
+    <Section  v-if="newer" type="odd">
+      <Summary :data="newer" />
+    </Section>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 
 import Post from "@/components/Post.vue";
 import Section from "@/components/Section.vue";
+import Summary from "@/components/Summary.vue";
 
 import * as Api from "@/logic/api";
 import { SummaryData } from "@/logic/models";
@@ -20,11 +22,14 @@ import { SummaryData } from "@/logic/models";
 @Component({
   components: {
     Post,
-    Section
+    Section,
+    Summary
   }
 })
 export default class Posts extends Vue {
   // TODO: allow passing a category to filter posts
+
+  // TODO: show previous post summary but scroll view to start at current post
 
   @Prop() private startId!: string;
 
@@ -40,45 +45,16 @@ export default class Posts extends Vue {
     return -1;
   }
 
-  private get hasEarlier() {
-    return this.currentIndex + 1 < this.summaries.length;
-  }
-
-  private get hasNewer() {
-    return this.currentIndex >= 1;
-  }
-
   private get newer() {
     return this.summaries[this.currentIndex - 1];
   }
-  
+
   private get earlier() {
     return this.summaries[this.currentIndex + 1];
   }
 
   public async beforeMount() {
     this.summaries = await Api.getSummaries();
-  }
-
-  private loadEarlier() {
-    if (!this.hasEarlier) {
-      return;
-    }
-
-    this.loadPostByIndex(this.currentIndex + 1);
-  }
-
-  private loadNewer() {
-    if (!this.hasNewer) {
-      return;
-    }
-
-    this.loadPostByIndex(this.currentIndex - 1);
-  }
-
-  private loadPostByIndex(index: number) {
-    const post = this.summaries[index];
-    this.activePostId = post.id;
   }
 }
 </script>
