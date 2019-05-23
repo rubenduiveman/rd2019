@@ -180,7 +180,8 @@ $menu-height: 120px;
 
   .mainmenu {
     height: $menu-height;
-    border-top: 1px solid transparent;
+    border-top: 1px solid;
+    @include border-color("neutral-100");
   }
 
   .logo,
