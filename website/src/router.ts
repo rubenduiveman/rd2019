@@ -22,6 +22,10 @@ export default new Router({
             component: () => import(/* webpackChunkName: "timeline" */ "./views/Timeline.vue")
         },
         {
+            path: "/now",
+            redirect: "/timeline"
+        },
+        {
             path: "/case-studies",
             name: "case studies",
             component: () => import(/* webpackChunkName: "case-studies" */ "./views/CaseStudies.vue")
