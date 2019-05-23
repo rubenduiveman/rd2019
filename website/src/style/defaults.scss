@@ -55,7 +55,6 @@ a.outbound {
 
 	&::after {
 		content: "";
-		background-image: url("assets/icons/external-link-alt.svg");
 		background-repeat: no-repeat;
 		background-size: 16px;
 		background-position: center;
@@ -66,6 +65,14 @@ a.outbound {
 	&:hover::after {
 		opacity: 0.8;
 	}
+}
+
+.theme-light a.outbound::after {
+	background-image: url("assets/icons/external-link-light.svg");
+}
+
+.theme-dark a.outbound::after {
+	background-image: url("assets/icons/external-link-dark.svg");
 }
 
 // #region scrollbar
