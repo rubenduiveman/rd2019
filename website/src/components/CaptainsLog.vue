@@ -7,7 +7,7 @@
     <p>thought</p> -->
 
     <label class="date">May 17th, 2019</label>
-    <p>At work, I don't always feel I'm working on things that match my expertise. Because of the open culture at Uptrends, I felt safe to discuss this with my team lead. He and I are looking at fixing this in a way that works for both parties.</p>
+    <p>At work, sometimes I'm searching to find how I can add value the most. Because of the open culture at Uptrends, I felt safe to discuss this with my team lead. He and I are looking at improving this in a way that works for both parties.</p>
     <p>At home Renske and I are almost done preparing the birth of my daughter halfway June! We've got almost everything set up. Unfortunately our car broke down last week, so we're in the middle of replacing it with something bigger.</p>
     <p>One of the things I'm trying to be more mindful of is how little I know of what other people think. "Don't compare your inside to someone else's outside" is a household saying. That goes for how I might feel about myself when I compare myself to others, but it's also a good pointer for when I don't understand other people's decisions, or the reasoning behind it. You get to be you, with your experiences, and I get to be me.</p>
 
