@@ -28,7 +28,6 @@ export default class App extends Vue {
 .mainmenu {
   position: fixed;
   z-index: 1;
-  top: 0;
 }
 
 #app {
@@ -58,6 +57,10 @@ export default class App extends Vue {
     padding-top: 120px;
     min-height: calc(100% - 120px);
   }
+  
+  .mainmenu {
+    top: 0;
+  }
 }
 
 @media screen and (max-width: 680px) {
@@ -68,7 +71,7 @@ export default class App extends Vue {
 
   .mainmenu {
     position: fixed;
-    top: calc(100% - 64px);
+    bottom: 0;
   }
 }
 
