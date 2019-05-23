@@ -27,7 +27,6 @@ body {
 
 h1,
 h2,
-h4,
 p {
 	padding: 0;
 	margin: 0;
@@ -51,12 +50,6 @@ h2 {
 	}
 }
 
-// primary paragraphs
-h4 {
-	font-size: 24px;
-	line-height: 36px;
-}
-
 aside {
 	font-size: 16px;
 	line-height: 24px;
@@ -71,6 +64,12 @@ body {
 
 p {
 	padding: 1vh 0;
+}
+
+
+p.hero {
+	font-size: 24px;
+	line-height: 36px;
 }
 
 a,

@@ -1,7 +1,7 @@
 <template>
   <Section class="vision">
     
-    <h4>My name is Ruben Duiveman. My passion is using my experience as an interface designer, software developer and team lead to <b>grow ideas into reachable targets</b>. My work focuses on the overlap of strategy, process and development.</h4>
+    <p class="hero">My name is Ruben Duiveman. My passion is using my experience as an interface designer, software developer and team lead to <b>grow ideas into reachable targets</b>. My work focuses on the overlap of strategy, process and development.</p>
 
     <p><b>Strategy</b> is about progress, about transcending above where you are now. To follow your vision. A living strategy ensures your right to exist: by adapting to what's happening around you, you'll be able to remain the lead.</p>
 
