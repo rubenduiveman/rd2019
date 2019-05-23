@@ -66,10 +66,16 @@ p {
 	padding: 1vh 0;
 }
 
-
+// accented paragraphs
 p.hero {
 	font-size: 24px;
 	line-height: 36px;
+}
+
+// description paragraphs directly following a title
+p.desc {
+	padding: 0;
+    margin-top: -4px;
 }
 
 a,

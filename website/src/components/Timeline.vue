@@ -4,35 +4,35 @@
     <ul>
       <li>
         <label class="life">LIFE</label><label class="date">DEC 2018</label>
-        <p>We're expecting! A baby girl will be added to our little family halfway June 2019.</p>
+        <p class="desc">We're expecting! A baby girl will be added to our little family halfway June 2019.</p>
       </li>
       <li>
         <label class="work">WORK</label><label class="date">OCT 2018</label>
-        <p>Job switch! I started working at Uptrends after 7 years at FileLinx. I’m very exited to start as a Software Developer and get my skills to the next level!</p>
+        <p class="desc">Job switch! I started working at Uptrends after 7 years at FileLinx. I’m very exited to start as a Software Developer and get my skills to the next level!</p>
       </li>
       <li>
         <label class="life">LIFE</label><label class="date">JUL 2018</label>
-        <p>Moved to our new and super big house! We’re still living in Bodegraven, but in a single family home instead of an apartment.</p>
+        <p class="desc">Moved to our new and super big house! We’re still living in Bodegraven, but in a single family home instead of an apartment.</p>
       </li>
       <li>
         <label class="work">WORK</label><label class="date">AUG 2017</label>
-        <p>Took on a Development Team Lead role in addition to my developing and designing. Added responsibilities include planning and coaching the Development Team.</p>
+        <p class="desc">Took on a Development Team Lead role in addition to my developing and designing. Added responsibilities include planning and coaching the Development Team.</p>
       </li>
       <li>
         <label class="life">LIFE</label><label class="date">SEP 2016</label>
-        <p>It’s a boy! Renske and I just welcomed our son Jona to the world. He’s doing great!</p>
+        <p class="desc">It’s a boy! Renske and I just welcomed our son Jona to the world. He’s doing great!</p>
       </li>
       <li>
         <label class="life">LIFE</label><label class="date">OCT 2014</label>
-        <p>Got married to Renske! We celebrated our marriage on a wonderful day full of love, happiness, family and friends. I moved from Alphen to Bodegraven to live with her.</p>
+        <p class="desc">Got married to Renske! We celebrated our marriage on a wonderful day full of love, happiness, family and friends. I moved from Alphen to Bodegraven to live with her.</p>
       </li>
       <li>
         <label class="work">WORK</label><label class="date">SEP 2011</label>
-        <p>Started working at FileLinx as a User Interface Designer. Excited to put my college knowledge to the test!</p>
+        <p class="desc">Started working at FileLinx as a User Interface Designer. Excited to put my college knowledge to the test!</p>
       </li>
       <li>
         <label class="work">WORK</label><label class="date">AUG 2011</label>
-        <p>Whoo-hoo! I’m officially a Bachelor of Applied Science after wrapping up my Communication & Multimedia Design studies at Avans University!</p>
+        <p class="desc">Whoo-hoo! I’m officially a Bachelor of Applied Science after wrapping up my Communication & Multimedia Design studies at Avans University!</p>
       </li>
     </ul>
   </Section>
@@ -70,11 +70,6 @@ li {
     position: absolute;
     left: 0px;
     top: 29px;
-  }
-
-  p {
-    padding: 0;
-    margin-top: -4px;
   }
 
   &:first-child {
