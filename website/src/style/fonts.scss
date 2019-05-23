@@ -88,3 +88,11 @@ a:visited {
 		text-decoration: underline;
 	}
 }
+
+label.date {
+	font-size: 16px;
+	line-height: 32px;
+	@include color("neutral-500");
+	padding-left: 1em;
+  
+}

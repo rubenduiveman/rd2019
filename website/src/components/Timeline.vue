@@ -85,7 +85,7 @@ li {
   }
 }
 
-.life, .work, .date {
+.life, .work {
   font-size: 16px;
   line-height: 32px;
 }
@@ -100,11 +100,6 @@ li {
 
 .work {
   @include color("accent-500");
-}
-
-.date {
-  @include color("neutral-500");
-  padding-left: 1em;
 }
 
 </style>
