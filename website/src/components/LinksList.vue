@@ -7,6 +7,13 @@
       <label class="date">May 23, 2019</label>
       <p class="desc">Thought-provoking article on how the desktop metafore is reaching its due date. Focuses on how human-focused a desktop really is, since it allows us to get overwhelmed by multitasking, and how it should stimulate us to get in <a href="https://en.wikipedia.org/wiki/Flow_(psychology)">a state of flow</a>.</p>
     </li>
+    <li>
+      <a class='outbound'
+        href="https://palettte.app/"
+      >Palette App</a>
+      <label class="date">Feb 10, 2019</label>
+      <p class="desc">Color palette generator that actually feels well thought-out. This tool enables you to create consistent and logical color palettes that work. Also super fun to visualize the <a href="https://en.wikipedia.org/wiki/HSL_and_HSV">HSL</a> relationship between the colors in a palette.</p>
+    </li>
   </ul>
 </template>
 
