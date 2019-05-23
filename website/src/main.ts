@@ -31,5 +31,6 @@ new Vue({
 
 router.beforeEach((to, from, next) => {
     store.commit("setFooterAccent", "odd");
+    window.scrollTo(0, 0);
     next();
 });
