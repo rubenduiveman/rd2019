@@ -50,34 +50,11 @@ export default class Timeline extends Vue {}
 <style lang="scss" scoped>
 @import "@/style/theme.scss";
 
-ul {
-  list-style: none;
-  padding: 0 0 0 0.5em;
-}
-
-li {
-  position: relative;
-  padding-bottom: 32px;
-  padding-left: 20px;
-  
+li {  
   @include themify-bg-line(5px, 6px, "neutral-500");
   
   &::before {
-    content: "•";
-    @include color("neutral-500");
-    font-size: 32px;
-
-    position: absolute;
-    left: 0px;
     top: 29px;
-  }
-
-  &:first-child {
-    padding-top: 40px;
-
-    &::before {
-      top: 69px;
-    }
   }
 
   &:last-child {

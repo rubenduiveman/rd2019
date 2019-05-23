@@ -29,6 +29,45 @@ b {
 	@include color("bold-text");
 }
 
+ul {
+	list-style: none;
+	padding: 40px 0 0 0.5em;
+}
+
+li {
+	position: relative;
+	padding-bottom: 32px;
+	padding-left: 20px;
+
+	&::before {
+		content: "•";
+		@include color("neutral-500");
+		font-size: 32px;
+
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	}
+}
+
+a.outbound {
+	display: inline-flex;
+
+	&::after {
+		content: "";
+		background-image: url("assets/icons/external-link-alt.svg");
+		background-repeat: no-repeat;
+		background-size: 16px;
+		background-position: center;
+		width: 24px;
+		opacity: 0.5;
+	}
+
+	&:hover::after {
+		opacity: 0.8;
+	}
+}
+
 // #region scrollbar
 
 ::-webkit-scrollbar {
@@ -46,22 +85,26 @@ b {
 	border-radius: 12px;
 }
 
-.theme-light [href*="twitter"], .dark[href*="twitter"] {
+.theme-light [href*="twitter"],
+.dark[href*="twitter"] {
 	background-image: url("assets/icons/twitter-dark.svg");
 	margin: 0 1vw;
 }
 
-.theme-light [href*="linkedin"], .dark[href*="linkedin"] {
+.theme-light [href*="linkedin"],
+.dark[href*="linkedin"] {
 	background-image: url("assets/icons/linkedin-dark.svg");
 	margin: 0 1vw;
 }
 
-.theme-dark [href*="twitter"], .light[href*="twitter"] {
+.theme-dark [href*="twitter"],
+.light[href*="twitter"] {
 	background-image: url("assets/icons/twitter-light.svg");
 	margin: 0 1vw;
 }
 
-.theme-dark [href*="linkedin"], .light[href*="linkedin"] {
+.theme-dark [href*="linkedin"],
+.light[href*="linkedin"] {
 	background-image: url("assets/icons/linkedin-light.svg");
 	margin: 0 1vw;
 }
