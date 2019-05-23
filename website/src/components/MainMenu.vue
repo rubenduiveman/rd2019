@@ -5,6 +5,7 @@
     <router-link to="/timeline" class="link">timeline</router-link>
     <!-- <router-link to="/case studies" class="link">case studies</router-link> -->
     <router-link to="/blog" class="link">blog</router-link>
+    <router-link to="links" class="link">links</router-link>
     <div class="theme-switcher" @click="switchTheme"></div>
   </nav>
 </template>

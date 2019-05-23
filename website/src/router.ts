@@ -40,6 +40,11 @@ export default new Router({
             alias: "/post/:id",
             name: "post",
             component: () => import(/* webpackChunkName: "post" */ "./views/Post.vue")
+        },
+        {
+            path: "/links",
+            name: "links",
+            component: () => import(/* webpackChunkName: "links" */ "./views/Links.vue")
         }
     ],
 });
