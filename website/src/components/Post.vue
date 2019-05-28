@@ -46,11 +46,6 @@ export default class Post extends Vue {
 
   @Watch("postData")
   private onPostDataChanged() {
-    window.history.pushState(
-      null,
-      this.postData!.title,
-      this.postData!.clientUrl
-    );
     window.scrollTo(0, 0);
   }
 }
