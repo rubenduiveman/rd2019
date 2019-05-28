@@ -3,8 +3,8 @@
     <Section class="post" type="even">
       <Post :id="activePostId"/>
     </Section>
-    <Section v-if="newer" type="odd">
-      <Teaser :data="newer">Next post</Teaser>
+    <Section v-if="earlier" type="odd">
+      <Teaser :data="earlier">Earlier post</Teaser>
     </Section>
   </div>
 </template>
