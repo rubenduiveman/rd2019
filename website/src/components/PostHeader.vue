@@ -14,7 +14,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 
-import { ajax } from "../logic/helpers";
+import { ajax, formatDate } from "../logic/helpers";
 import { HeaderData } from "../logic/models";
 
 @Component
@@ -41,8 +41,7 @@ export default class Summary extends Vue {
   ];
 
   private get formattedDate() {
-    const d = this.data.clientDate;
-    return `${this.months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+    return formatDate(this.data.clientDate);
   }
 }
 </script>
