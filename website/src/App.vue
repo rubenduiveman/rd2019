@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <MainMenu />
+    <MainMenu/>
     <transition name="fade" mode="out-in">
       <router-view id="content"/>
     </transition>
@@ -51,13 +51,12 @@ export default class App extends Vue {
   opacity: 0;
 }
 
-
 @media screen and (min-width: 681px) {
   #app {
     padding-top: 120px;
     min-height: calc(100% - 120px);
   }
-  
+
   .mainmenu {
     top: 0;
   }
@@ -74,5 +73,4 @@ export default class App extends Vue {
     bottom: 0;
   }
 }
-
 </style>
