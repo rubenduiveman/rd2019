@@ -40,6 +40,10 @@ export default new Router({
             redirect: "/blog"
         },
         {
+            path: "/posts",
+            redirect: "/blog"
+        },
+        {
             path: "/post/:id/:title",
             alias: "/post/:id",
             name: "post",
