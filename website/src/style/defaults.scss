@@ -34,6 +34,18 @@ ul {
 	padding: 40px 0 0 0.5em;
 }
 
+img {
+	max-width: 100%;
+	border: 1px solid;
+	@include border-color("neutral-100");
+}
+
+span.explanation {
+	font-style: italic;
+	font-size: 16px;
+	line-height: 20px;
+}
+
 li {
 	position: relative;
 	padding-bottom: 32px;
