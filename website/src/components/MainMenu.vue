@@ -1,14 +1,14 @@
 <template>
   <nav class="mainmenu">
     <div class="menu-toggle" @click="isVisible = !isVisible" :class="{ open: isVisible }"></div>
-    <router-link to="/" class="logo"/>
+    <router-link :to="{ name: 'home' }" class="logo"/>
     <div class="menu" :class="{ visible: isVisible }">
       <router-link :to="{ name: 'home' }" class="link">home</router-link>
-      <router-link to="vision" class="link">vision</router-link>
-      <router-link to="timeline" class="link">timeline</router-link>
-      <!-- <router-link to="/case studies" class="link">case studies</router-link> -->
-      <!-- <router-link to="/blog" class="link">blog</router-link> -->
-      <router-link to="links" class="link">links</router-link>
+      <router-link :to="{ name: 'vision' }" class="link">vision</router-link>
+      <router-link :to="{ name: 'timeline' }" class="link">timeline</router-link>
+      <!-- <router-link :to="{ name: 'casestudies' }" class="link">case studies</router-link> -->
+      <!-- <router-link :to="{ name: 'blog' }" class="link">blog</router-link> -->
+      <router-link :to="{ name: 'links' }" class="link">links</router-link>
     </div>
     <div class="theme-switcher" @click="switchTheme"></div>
   </nav>
@@ -19,7 +19,6 @@ import { Component, Vue, Watch } from "vue-property-decorator";
 
 @Component
 export default class MainMenu extends Vue {
-
   private isVisible: boolean = false;
 
   private switchTheme() {
@@ -40,7 +39,6 @@ export default class MainMenu extends Vue {
   private onRouteChange() {
     this.isVisible = false;
   }
-
 }
 </script>
 
@@ -100,11 +98,11 @@ $menu-height: 120px;
   .theme-switcher {
     background-image: url("../assets/icons/night-to-day.svg");
   }
-  
+
   .menu-toggle:not(.open) {
     background-image: url("../assets/icons/menu-dark.svg");
   }
-  
+
   .menu-toggle.open {
     background-image: url("../assets/icons/close-dark.svg");
   }
@@ -118,11 +116,11 @@ $menu-height: 120px;
   .theme-switcher {
     background-image: url("../assets/icons/day-to-night.svg");
   }
-  
+
   .menu-toggle:not(.open) {
     background-image: url("../assets/icons/menu-light.svg");
   }
-  
+
   .menu-toggle.open {
     background-image: url("../assets/icons/close-light.svg");
   }
@@ -155,7 +153,7 @@ $menu-height: 120px;
     @include background-color("neutral-0");
     border-bottom: 1px solid;
     @include border-color("neutral-100");
-    
+
     overflow: hidden;
     padding: 0.5em 0;
 
@@ -169,7 +167,7 @@ $menu-height: 120px;
   }
 
   .theme-light .menu {
-    box-shadow: 0 -4px 4px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.1);
   }
 
   .theme-dark .menu {
@@ -191,7 +189,7 @@ $menu-height: 120px;
     height: $menu-height;
     background-size: 40px;
   }
-  
+
   .link {
     line-height: $menu-height;
   }
