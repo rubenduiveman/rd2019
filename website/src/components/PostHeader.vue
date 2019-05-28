@@ -14,7 +14,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 
-import { ajax, formatDate } from "../logic/helpers";
+import { formatDate } from "../logic/helpers";
 import { HeaderData } from "../logic/models";
 
 @Component
