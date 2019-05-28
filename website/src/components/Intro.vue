@@ -12,9 +12,12 @@
     <p>
       Get to know me better by reading about
       <router-link to="vision">my vision</router-link>&nbsp;or checking out
-      <router-link to="timeline">my timeline</router-link>. See what inspires me by scrolling through <router-link to="links">my list of links</router-link>.
-      <!-- Find out how I work by reading <router-link to="case-studies">my case studies</router-link>&nbsp;or by reading
-      <router-link to="blog">my blog</router-link>. Alternatively, scroll down to start reading my latest blog post below. -->
+      <router-link to="timeline">my timeline</router-link>. See what inspires me by scrolling through
+      <router-link to="links">my list of links</router-link>.
+      Find out what I think about by reading
+      <!-- <router-link to="case-studies">my case studies</router-link>&nbsp;or by reading -->
+      <router-link :to="{ name: 'blog' }">my blog</router-link>.
+      <!-- Alternatively, scroll down to start reading my latest blog post below. -->
     </p>
 
     <div class="socials">
