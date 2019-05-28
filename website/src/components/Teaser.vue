@@ -4,7 +4,7 @@
       <slot/>
     </a>
     <PostHeader :link="true" :data="data"/>
-    <p class="summary" v-if="data.summary">
+    <p class="post-summary" v-if="data.summary">
       <span v-html="data.summary"/>
       <a :href="data.clientUrl">Read more</a>
     </p>
@@ -28,7 +28,8 @@ export default class Teaser extends Vue {
 <style lang="scss" scoped>
 @import "./../style/theme.scss";
 
-.summary a {
+.post-summary a {
   padding-left: 1em;
+  white-space: nowrap;
 }
 </style>
