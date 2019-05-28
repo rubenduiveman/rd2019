@@ -68,8 +68,16 @@ $menu-height: 120px;
   height: $menu-height;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 56px;
   cursor: pointer;
+}
+
+.theme-switcher,
+.menu-toggle {
+  background-size: 56px;
+}
+
+.logo {
+  background-size: 40px;
 }
 
 .link {
@@ -137,6 +145,8 @@ $menu-height: 120px;
 
   .mainmenu {
     border-bottom: 1px solid transparent;
+    max-width: 1080px;
+    align-self: center;
   }
 }
 
@@ -187,7 +197,15 @@ $menu-height: 120px;
   .menu-toggle {
     width: $menu-height;
     height: $menu-height;
+  }
+
+  .theme-switcher,
+  .menu-toggle {
     background-size: 40px;
+  }
+
+  .logo {
+    background-size: 28px;
   }
 
   .link {
