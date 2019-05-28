@@ -1,7 +1,12 @@
 <template>
   <div class="summaries">
-    <Section class="summary" type="odd" v-for="summary in summaries" :key="summary.id">
-      <Summary :data="summary" />
+    <Section
+      class="summary"
+      :type="(index % 2 === 0) ? 'odd' : 'even'"
+      v-for="(summary, index) in summaries"
+      :key="summary.id"
+    >
+      <Summary :data="summary"/>
     </Section>
   </div>
 </template>
@@ -26,6 +31,9 @@ export default class Summaries extends Vue {
 
   public async beforeMount() {
     this.summaries = await Api.getSummaries();
+
+    const footerAccent = this.summaries.length % 2 === 0 ? "odd" : "even";
+    this.$store.commit("setFooterAccent", footerAccent);
   }
 }
 </script>
@@ -35,15 +43,12 @@ export default class Summaries extends Vue {
 @import "@/style/theme.scss";
 
 .summaries {
-  padding: 6vh 4vw;
+  padding-top: 6vh;
 }
 
 .summary {
-  margin: 4vh 0;
-  
   &::before {
     border-radius: 0.25em;
   }
 }
-
 </style>
