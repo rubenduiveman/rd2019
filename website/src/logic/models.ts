@@ -6,6 +6,7 @@ export interface HeaderData {
     tags: string[];
     clientDate: Date;
     clientUrl: string;
+    shareUrl: string;
 }
 
 export interface SummaryData extends HeaderData {

@@ -51,13 +51,19 @@ function enrichHeaderData(data: HeaderData): HeaderData {
     return {
         ...data,
         clientUrl: getClientUrl(data),
+        shareUrl: getShareUrl(data),
         clientDate: parseDate(data)
     };
 }
 
 function getClientUrl(data: HeaderData): string {
     // client URL is not passed from the server
-    return `#/post/${data.id}/${parseTitle(data.title)}`;
+    return `${getShareUrl(data)}/${parseTitle(data.title)}`;
+}
+
+function getShareUrl(data: HeaderData): string {
+    // share URL is not passed from the server
+    return `${window.location.origin}/#/post/${data.id}`;
 }
 
 function parseDate(data: HeaderData) {
