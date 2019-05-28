@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Palette App",
+        "url": "https://palettte.app/",
+        "date": "Feb 10, 2019",
+        "description": "Color palette generator that actually feels well thought-out. This tool enables you to create consistent and logical color palettes that work. Also super fun to visualize the [HSL](https://en.wikipedia.org/wiki/HSL_and_HSV) relationship between the colors in a palette."
+    },
+    {
+        "title": "The Desktop Metaphor Must Die",
+        "url": "https://medium.com/@jasonyuan/the-desktop-metaphor-must-die-676fbb34afdb",
+        "date": "May 23, 2019",
+        "description": "Thought-provoking article on how the desktop metafore is reaching its due date. Focuses on how human-focused a desktop really is, since it allows us to get overwhelmed by multitasking, and how it should stimulate us to get in [a state of flow](https://en.wikipedia.org/wiki/Flow_(psychology))."
+    },
+    {
+        "title": "Agile: why your efforts will fail and what to do about it",
+        "url": "https://www.forbes.com/sites/tracybrower/2019/05/27/agile-why-your-efforts-will-fail-and-what-to-do-about-it/",
+        "date": "May 28, 2019",
+        "description": "An article on common pitfalls Agile development teams might come across. There are no real solutions offered in this piece, but naming issues is the first step towards solving them."
+    }
+]
