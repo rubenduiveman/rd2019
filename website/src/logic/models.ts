@@ -7,11 +7,11 @@ export interface HeaderData {
     clientDate: Date;
     clientUrl: string;
     shareUrl: string;
-}
-
-export interface SummaryData extends HeaderData {
     summary: string;
 }
+
+// tslint:disable-next-line: no-empty-interface
+export interface SummaryData extends HeaderData { }
 
 export interface PostData extends HeaderData {
     content: string;
