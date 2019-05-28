@@ -25,30 +25,30 @@ export default new Router({
             path: "/now",
             redirect: "/timeline"
         },
-        {
-            path: "/case-studies",
-            name: "case-studies",
-            component: () => import(/* webpackChunkName: "case-studies" */ "./views/CaseStudies.vue")
-        },
-        {
-            path: "/blog",
-            name: "blog",
-            component: () => import(/* webpackChunkName: "blog" */ "./views/Blog.vue")
-        },
-        {
-            path: "/post",
-            redirect: "/blog"
-        },
-        {
-            path: "/posts",
-            redirect: "/blog"
-        },
-        {
-            path: "/post/:id/:title",
-            alias: "/post/:id",
-            name: "post",
-            component: () => import(/* webpackChunkName: "post" */ "./views/Post.vue")
-        },
+        // {
+        //     path: "/case-studies",
+        //     name: "case-studies",
+        //     component: () => import(/* webpackChunkName: "case-studies" */ "./views/CaseStudies.vue")
+        // },
+        // {
+        //     path: "/blog",
+        //     name: "blog",
+        //     component: () => import(/* webpackChunkName: "blog" */ "./views/Blog.vue")
+        // },
+        // {
+        //     path: "/post",
+        //     redirect: "/blog"
+        // },
+        // {
+        //     path: "/posts",
+        //     redirect: "/blog"
+        // },
+        // {
+        //     path: "/post/:id/:title",
+        //     alias: "/post/:id",
+        //     name: "post",
+        //     component: () => import(/* webpackChunkName: "post" */ "./views/Post.vue")
+        // },
         {
             path: "/links",
             name: "links",
