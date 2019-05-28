@@ -4,7 +4,7 @@
       <Post :id="activePostId"/>
     </Section>
     <Section v-if="newer" type="odd">
-      <Summary :data="newer"/>
+      <Teaser :data="newer">Next post</Teaser>
     </Section>
   </div>
 </template>
@@ -14,7 +14,7 @@ import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 
 import Post from "@/components/Post.vue";
 import Section from "@/components/Section.vue";
-import Summary from "@/components/Summary.vue";
+import Teaser from "@/components/Teaser.vue";
 
 import * as Api from "@/logic/api";
 import { SummaryData } from "@/logic/models";
@@ -23,7 +23,7 @@ import { SummaryData } from "@/logic/models";
   components: {
     Post,
     Section,
-    Summary
+    Teaser
   }
 })
 export default class Posts extends Vue {
@@ -57,7 +57,7 @@ export default class Posts extends Vue {
     this.summaries = await Api.getSummaries();
   }
 
- @Watch("startId")
+  @Watch("startId")
   private async onIdChanged() {
     this.activePostId = this.startId;
   }
