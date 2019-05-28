@@ -1,8 +1,9 @@
 <template>
   <header class="post-header" :class="{ 'is-link': linked }">
-    <h2>
+    <h2 v-if="linked">
       <a :href="data.clientUrl">{{ data.title }}</a>
     </h2>
+    <h2 v-if="!linked">{{ data.title }}</h2>
     <span v-if="data.date && !linked" class="timestamp">{{ formattedDate }}</span>
     <aside v-if="!linked && data.tags && data.tags.length">
       <b>BLOG POST</b> on
