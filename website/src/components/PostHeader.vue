@@ -25,21 +25,6 @@ export default class Summary extends Vue {
 
   // TODO: make tags valid links
 
-  private readonly months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec"
-  ];
-
   private get formattedDate() {
     return formatDate(this.data.clientDate);
   }
