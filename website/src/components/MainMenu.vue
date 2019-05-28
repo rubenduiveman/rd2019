@@ -6,7 +6,7 @@
       <router-link :to="{ name: 'home' }" class="link">home</router-link>
       <router-link :to="{ name: 'vision' }" class="link">vision</router-link>
       <router-link :to="{ name: 'timeline' }" class="link">timeline</router-link>
-      <!-- <router-link :to="{ name: 'casestudies' }" class="link">case studies</router-link> -->
+      <!-- <router-link :to="{ name: 'case-studies' }" class="link">case studies</router-link> -->
       <!-- <router-link :to="{ name: 'blog' }" class="link">blog</router-link> -->
       <router-link :to="{ name: 'links' }" class="link">links</router-link>
     </div>

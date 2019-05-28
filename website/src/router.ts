@@ -27,7 +27,7 @@ export default new Router({
         },
         {
             path: "/case-studies",
-            name: "case studies",
+            name: "case-studies",
             component: () => import(/* webpackChunkName: "case-studies" */ "./views/CaseStudies.vue")
         },
         {
