@@ -23,6 +23,7 @@ class PostsController
             $post->content = htmlspecialchars($posts[$post_id]->getContent());
             $post->url = $meta['url'];
             $post->date = $meta['date'];
+            $post->summary = $meta['summary'];
 
             return $post;
         } catch (Exception $e) {
@@ -42,7 +43,7 @@ class PostsController
 
         if ($tag != null) {
             // array_filter() preserves keys, so use array_values
-            $metadatas = array_values(array_filter($metadatas, function($meta) use ($tag) {
+            $metadatas = array_values(array_filter($metadatas, function ($meta) use ($tag) {
                 return in_array($tag, $meta['tags']);
             }));
         }
@@ -55,9 +56,9 @@ class PostsController
     private static function get_post_meta($post, $id)
     {
         $self = str_replace("/index.php", "", $_SERVER['PHP_SELF']);
-        
+
         $meta = $post->getYAML();
-        $meta['url'] = 'http://'.$_SERVER['HTTP_HOST'].$self.'?id='.$id;
+        $meta['url'] = 'http://' . $_SERVER['HTTP_HOST'] . $self . '?id=' . $id;
         $meta['id'] = $id;
         return $meta;
     }
@@ -106,23 +107,24 @@ class PostsController
         return $file_paths;
     }
 
-    private static function filter_by_value ($array, $index, $value){ 
-        if(is_array($array) && count($array)>0)  
-        { 
-            foreach(array_keys($array) as $key){ 
-                $temp[$key] = $array[$key][$index]; 
-                 
-                if ($temp[$key] == $value){ 
-                    $newarray[$key] = $array[$key]; 
-                } 
-            } 
-          } 
-      return $newarray; 
-    } 
+    private static function filter_by_value($array, $index, $value)
+    {
+        if (is_array($array) && count($array) > 0) {
+            foreach (array_keys($array) as $key) {
+                $temp[$key] = $array[$key][$index];
 
-    private static function array_contains($array, $value) {
+                if ($temp[$key] == $value) {
+                    $newarray[$key] = $array[$key];
+                }
+            }
+        }
+        return $newarray;
+    }
+
+    private static function array_contains($array, $value)
+    {
         $result = array();
-        foreach(array_values($array) as $val) {
+        foreach (array_values($array) as $val) {
             $result[] = $val;
         }
     }

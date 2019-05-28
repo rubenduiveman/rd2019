@@ -1,6 +1,7 @@
 <?php
 
-class Post {
+class Post
+{
     /**
      * @var int
      */
@@ -21,11 +22,14 @@ class Post {
      * @var mixed
      */
     public $tags;
-    
+
     /**
      * @var string
      */
     public $content;
 
-    public function __construct(){ }
+    public $summary;
+
+    public function __construct()
+    { }
 }
