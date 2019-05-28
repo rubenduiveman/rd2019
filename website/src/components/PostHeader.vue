@@ -50,7 +50,7 @@ h2 {
 
 .timestamp {
   padding-left: 16px;
-  @include color("neutral-500");
+  @include color("t-neutral-500");
 }
 
 main {
