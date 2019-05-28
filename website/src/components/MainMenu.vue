@@ -1,16 +1,18 @@
 <template>
   <nav class="mainmenu">
-    <div class="menu-toggle" @click="isVisible = !isVisible" :class="{ open: isVisible }"></div>
-    <router-link :to="{ name: 'home' }" class="logo"/>
-    <div class="menu" :class="{ visible: isVisible }">
-      <router-link :to="{ name: 'home' }" class="link">home</router-link>
-      <router-link :to="{ name: 'vision' }" class="link">vision</router-link>
-      <router-link :to="{ name: 'timeline' }" class="link">timeline</router-link>
-      <!-- <router-link :to="{ name: 'case-studies' }" class="link">case studies</router-link> -->
-      <!-- <router-link :to="{ name: 'blog' }" class="link">blog</router-link> -->
-      <router-link :to="{ name: 'links' }" class="link">links</router-link>
+    <div class="mainmenu-container">
+      <div class="menu-toggle" @click="isVisible = !isVisible" :class="{ open: isVisible }"></div>
+      <router-link :to="{ name: 'home' }" class="logo"/>
+      <div class="menu" :class="{ visible: isVisible }">
+        <router-link :to="{ name: 'home' }" class="link">home</router-link>
+        <router-link :to="{ name: 'vision' }" class="link">vision</router-link>
+        <router-link :to="{ name: 'timeline' }" class="link">timeline</router-link>
+        <!-- <router-link :to="{ name: 'case-studies' }" class="link">case studies</router-link> -->
+        <!-- <router-link :to="{ name: 'blog' }" class="link">blog</router-link> -->
+        <router-link :to="{ name: 'links' }" class="link">links</router-link>
+      </div>
+      <div class="theme-switcher" @click="switchTheme"></div>
     </div>
-    <div class="theme-switcher" @click="switchTheme"></div>
   </nav>
 </template>
 
@@ -49,10 +51,16 @@ $menu-height: 120px;
 
 .mainmenu {
   width: 100%;
-  height: $menu-height;
+  @include background-color("neutral-0");
+  display: flex;
+  justify-content: center;
+}
+
+.mainmenu-container {
   display: flex;
   justify-content: space-between;
-  @include background-color("neutral-0");
+  width: 100%;
+  height: $menu-height;
 }
 
 .logo:hover,
@@ -134,7 +142,7 @@ $menu-height: 120px;
   }
 }
 
-.mainmenu {
+.mainmenu-container {
   @include themify-nested(".is-scrolled", "border-color", "neutral-100");
 }
 
@@ -143,10 +151,9 @@ $menu-height: 120px;
     display: none;
   }
 
-  .mainmenu {
+  .mainmenu-container {
     border-bottom: 1px solid transparent;
     max-width: 1080px;
-    align-self: center;
   }
 }
 
@@ -186,7 +193,7 @@ $menu-height: 120px;
 
   $menu-height: 64px;
 
-  .mainmenu {
+  .mainmenu-container {
     height: $menu-height;
     border-top: 1px solid;
     @include border-color("neutral-100");
