@@ -1,5 +1,5 @@
 <template>
-  <Posts :startId="startId" @changed="onPostChanged" />
+  <Posts :startId="startId" @changed="onPostChanged"/>
 </template>
 
 <script lang="ts">
@@ -18,7 +18,7 @@ export default class Post extends Vue {
   }
 
   private onPostChanged(meta: ChangedParams) {
-    if (meta.hasNewer) {
+    if (meta.hasEarlier) {
       this.$store.commit("setFooterAccent", "even");
     } else {
       this.$store.commit("setFooterAccent", "odd");
