@@ -1,7 +1,7 @@
 import { ajax, parseHtml } from "@/logic/helpers";
-import { HeaderData, PostData, SummaryData } from "../logic/models";
+import { HeaderData, LinkData, PostData, SummaryData } from "../logic/models";
 
-
+const linksPath = "http://api.rubenduiveman.nl/links.php";
 const summariesPath = "http://api.rubenduiveman.nl/posts.php";
 const postPath = summariesPath + "?id={{id}}";
 
@@ -23,6 +23,19 @@ export async function getSummaries(): Promise<SummaryData[]> {
 export async function getPost(id: string): Promise<PostData> {
     const postData = await ajax<PostData>(postPath.replace("{{id}}", id));
     return enrichPost(postData) as PostData;
+}
+
+export async function getLinks(): Promise<LinkData[]> {
+    const linkDatas = await ajax<LinkData[]>(linksPath);
+
+    const links = linkDatas.map((linkData) => {
+        return {
+            ...linkData,
+            description: parseHtml(linkData.description)
+        } as LinkData;
+    });
+
+    return links.reverse();
 }
 
 // --
