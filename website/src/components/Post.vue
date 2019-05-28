@@ -1,7 +1,7 @@
 <template>
   <article v-if="post">
     <PostHeader :data="post"/>
-    <main v-html="post.content"></main>
+    <main v-html="content"></main>
     <aside>
       Want to react?
       <a :href="shareLink" target="_blank">Discuss this post on twitter</a> or
@@ -26,6 +26,18 @@ export default class Post extends Vue {
 
   private get post() {
     return this.postData;
+  }
+
+  private get content() {
+    let content = this.post!.content;
+
+    // replace description
+    content = content.replace(
+      "{{ $page.frontmatter.description}}",
+      this.post!.summary || ""
+    );
+
+    return content;
   }
 
   private get shareLink() {
