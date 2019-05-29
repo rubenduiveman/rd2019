@@ -30,7 +30,13 @@ new Vue({
 }).$mount("#app");
 
 router.beforeEach((to, from, next) => {
+    // track page visit
+    (window as any).gtag("config", "UA-44368134-1", { page_path: to.fullPath });
+    // update footer
     store.commit("setFooterAccent", "odd");
+
+    // scroll to top
     window.scrollTo(0, 0);
+
     next();
 });
