@@ -3,8 +3,10 @@
     <Section class="post" type="even">
       <Post :id="activePostId"/>
     </Section>
-    <Section v-if="earlier" type="odd">
+    <Section v-if="earlier || newer" type="odd">
       <Teaser :data="earlier">Earlier post</Teaser>
+      <hr v-if="earlier && newer">
+      <Teaser :data="newer">Newer post</Teaser>
     </Section>
   </div>
 </template>
@@ -74,32 +76,11 @@ export default class Posts extends Vue {
 <style lang="scss" scoped>
 @import "./../style/theme.scss";
 
-.earlier,
-.newer {
-  border: 0;
-  background: none;
-  width: 100%;
-  height: 8vh;
-  position: relative;
-  color: #ccc;
-  padding-bottom: 2vh;
-  display: flex;
-  justify-content: center;
-
-  &::before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: skewY(-8deg);
-    transform-origin: top left;
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-}
-
-.earlier {
-  margin-top: 4vh;
+hr {
+  margin: 2vh 0;
+  opacity: 0.5;
+  border: none;
+  border-bottom: 1px solid;
+  @include border-color("neutral-500");
 }
 </style>

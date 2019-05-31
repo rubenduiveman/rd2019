@@ -18,7 +18,7 @@ export default class Post extends Vue {
   }
 
   private onPostChanged(meta: ChangedParams) {
-    if (meta.hasEarlier) {
+    if (meta.hasEarlier || meta.hasNewer) {
       this.$store.commit("setFooterAccent", "even");
     } else {
       this.$store.commit("setFooterAccent", "odd");
