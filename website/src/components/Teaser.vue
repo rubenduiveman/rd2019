@@ -1,12 +1,12 @@
 <template>
   <article v-if="data">
-    <a :href="data.clientUrl">
+    <router-link :to="data.clientUrl">
       <slot/>
-    </a>
+    </router-link>
     <PostHeader :link="true" :data="data"/>
     <p class="post-summary" v-if="data.summary">
       <span v-html="data.summary"/>
-      <a :href="data.clientUrl">Read more</a>
+      <router-link :to="data.clientUrl">Read more</router-link>
     </p>
   </article>
 </template>

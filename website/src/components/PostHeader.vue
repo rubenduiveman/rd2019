@@ -1,7 +1,7 @@
 <template>
   <header class="post-header" :class="{ 'is-link': linked }">
     <h2 v-if="linked">
-      <a :href="data.clientUrl">{{ data.title }}</a>
+      <router-link :to="data.clientUrl">{{ data.title}}</router-link>
     </h2>
     <h2 v-if="!linked">{{ data.title }}</h2>
     <span v-if="data.date && !linked" class="timestamp">{{ formattedDate }}</span>

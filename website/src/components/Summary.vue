@@ -1,8 +1,8 @@
 <template>
   <article v-if="data">
-    <PostHeader :data="data" />
+    <PostHeader :data="data"/>
     <p v-html="data.summary"></p>
-    <a :href="data.clientUrl">Read more</a>
+    <router-link :to="data.clientUrl">Read more</router-link>
   </article>
 </template>
 
@@ -14,11 +14,10 @@ import PostHeader from "@/components/PostHeader.vue";
 import { ajax } from "../logic/helpers";
 import { SummaryData } from "../logic/models";
 
-@Component({ components: { PostHeader }})
+@Component({ components: { PostHeader } })
 export default class Summary extends Vue {
   @Prop() private data!: SummaryData;
 }
-
 </script>
 
 <style lang="scss" scoped>

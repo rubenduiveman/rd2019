@@ -58,7 +58,7 @@ function enrichHeaderData(data: HeaderData): HeaderData {
 
 function getClientUrl(data: HeaderData): string {
     // client URL is not passed from the server
-    return `${getShareUrl(data)}/${parseTitle(data.title)}`;
+    return `/post/${data.id}/${parseTitle(data.title)}`;
 }
 
 function getShareUrl(data: HeaderData): string {
