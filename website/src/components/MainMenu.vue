@@ -89,8 +89,6 @@ $menu-height: 120px;
 }
 
 .link {
-  display: inline-block;
-  padding: 0 2vw;
   font-size: 20px;
   font-weight: bold;
   line-height: $menu-height;
@@ -154,6 +152,12 @@ $menu-height: 120px;
   .mainmenu-container {
     border-bottom: 1px solid transparent;
     max-width: 1080px;
+  }
+
+  .menu {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-around;
   }
 }
 
