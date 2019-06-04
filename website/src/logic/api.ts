@@ -26,15 +26,7 @@ export async function getPost(id: string): Promise<PostData> {
 }
 
 export async function getLinks(): Promise<LinkData[]> {
-    const linkDatas = await ajax<LinkData[]>(linksPath);
-
-    const links = linkDatas.map((linkData) => {
-        return {
-            ...linkData,
-            description: parseHtml(linkData.description)
-        } as LinkData;
-    });
-
+    const links = await ajax<LinkData[]>(linksPath);
     return links.reverse();
 }
 
