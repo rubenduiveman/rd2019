@@ -104,25 +104,29 @@ a.outbound {
 	border-radius: 12px;
 }
 
-.theme-light [href*="twitter"],
+.theme-light footer [href*="twitter"],
+.theme-light .intro [href*="twitter"],
 .dark[href*="twitter"] {
 	background-image: url("assets/icons/twitter-dark.svg");
 	margin: 0 1vw;
 }
 
-.theme-light [href*="linkedin"],
+.theme-light footer [href*="linkedin"],
+.theme-light .intro [href*="linkedin"],
 .dark[href*="linkedin"] {
 	background-image: url("assets/icons/linkedin-dark.svg");
 	margin: 0 1vw;
 }
 
-.theme-dark [href*="twitter"],
+.theme-dark footer [href*="twitter"],
+.theme-dark .intro [href*="twitter"],
 .light[href*="twitter"] {
 	background-image: url("assets/icons/twitter-light.svg");
 	margin: 0 1vw;
 }
 
-.theme-dark [href*="linkedin"],
+.theme-dark footer [href*="linkedin"],
+.theme-dark .intro [href*="linkedin"],
 .light[href*="linkedin"] {
 	background-image: url("assets/icons/linkedin-light.svg");
 	margin: 0 1vw;

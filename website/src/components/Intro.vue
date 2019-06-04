@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="intro">
     <h1>Ruben Duiveman</h1>
     <!-- <h2 class="faded">Full stack frontend developer</h2> -->
     <h2 class="faded">Product & UX</h2>
