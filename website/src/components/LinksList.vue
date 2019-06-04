@@ -1,9 +1,9 @@
 <template>
-  <ul>
+  <ul class="linkslist">
     <li v-for="linkdata in links" :key="linkdata.url">
       <a class="outbound" :href="linkdata.url">{{ linkdata.title }}</a>
       <label class="date">{{ linkdata.date }}</label>
-      <p class="desc" v-html="linkdata.description"></p>
+      <div class="desc" v-html="linkdata.description"></div>
     </li>
   </ul>
 </template>
@@ -24,13 +24,14 @@ export default class LinksList extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "@/style/theme.scss";
 
-p a {
+.linkslist .desc a {
   @include color("neutral-900");
   text-decoration: underline;
   font-weight: normal;
+  background-image: none !important;
 
   &:hover {
     @include color("primary-500");
