@@ -3,19 +3,22 @@
     <h1>Ruben Duiveman</h1>
     <!-- <h2 class="faded">Full stack frontend developer</h2> -->
     <h2 class="faded">Product & UX</h2>
+    <p>My passion is using my experience as a software developer and team lead to grow ideas into reachable targets. My work focuses on the overlap of strategy, process and development.</p>
+
     <p>
-      In October 2018 I started working at
-      <a href="https://uptrends.com">Uptrends</a> as a software developer. Before that, I worked at
-      <a href="https://filelinx.com">FileLinx</a> for 7 years as a frontend developer, UI / UX designer, and Development Team Lead.
+      I'm currently working on a SaaS Monitoring platform used by millions of users, including SpaceX, Microsoft and Volkswagen. I have
+      <router-link
+        :to="IFSCaseStudyUrl"
+      >led a team of 8 developers on a two-year venture to build a PaaS platform</router-link>.
     </p>
 
     <p>
       Get to know me better by reading about
-      <router-link to="vision">my vision</router-link>&nbsp;or checking out
-      <router-link to="timeline">my timeline</router-link>. See what inspires me by scrolling through
-      <router-link to="links">my list of links</router-link>.
-      Find out what I think about by reading
-      <!-- <router-link to="case-studies">my case studies</router-link>&nbsp;or by reading -->
+      <router-link :to="{ name: 'vision' }">my vision</router-link>&nbsp;or checking out
+      <router-link :to="{ name: 'timeline' }">my timeline</router-link>. See what inspires me by scrolling through
+      <router-link :to="{ name: 'links' }">my list of links</router-link>.
+      Find out how I work and think by reading
+      <router-link :to="{ name: 'casestudies' }">my case studies</router-link>&nbsp;or by reading
       <router-link :to="{ name: 'blog' }">my blog</router-link>.
       <!-- Alternatively, scroll down to start reading my latest blog post below. -->
     </p>
@@ -30,8 +33,17 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 
+import * as Api from "@/logic/api";
+
 @Component
-export default class Intro extends Vue {}
+export default class Intro extends Vue {
+  private IFSCaseStudyUrl = "";
+
+  public async beforeMount() {
+    const study = await Api.getCaseStudy("0");
+    this.IFSCaseStudyUrl = study.clientUrl;
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -47,6 +59,11 @@ main {
 
 a {
   @include color("accented-text");
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 p {
