@@ -27,6 +27,10 @@ export default class LinksList extends Vue {
 <style lang="scss">
 @import "@/style/theme.scss";
 
+.linkslist {
+  padding: 40px 0;
+}
+
 .linkslist .desc a {
   @include color("neutral-900");
   text-decoration: underline;

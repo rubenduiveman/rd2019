@@ -1,8 +1,8 @@
 <template>
   <Section class="links">
-    <p class="hero">
-        What follows is a list of interesting links and worthwile articles that I've come across. You might find them interesting, too.
-    </p>
+    <p
+      class="intro"
+    >What follows is a list of interesting links and worthwile articles that I've come across. You might find them interesting, too.</p>
     <LinksList/>
   </Section>
 </template>
@@ -15,9 +15,9 @@ import Section from "@/components/Section.vue";
 
 @Component({
   components: {
-      LinksList,
-      Section
+    LinksList,
+    Section
   }
 })
-export default class Links extends Vue { }
+export default class Links extends Vue {}
 </script>

@@ -50,6 +50,15 @@ h2 {
 	}
 }
 
+// post subtitles
+h3 {
+	font-size: 24px;
+	line-height: 32px;
+	font-weight: bold;
+	margin-bottom: 0;
+	@include color("bold-text");
+}
+
 aside {
 	font-size: 16px;
 	line-height: 24px;
@@ -67,7 +76,8 @@ p {
 }
 
 // accented paragraphs
-p.hero {
+p.intro,
+span.intro {
 	font-size: 24px;
 	line-height: 36px;
 }
@@ -75,7 +85,7 @@ p.hero {
 // description paragraphs directly following a title
 p.desc {
 	padding: 0;
-    margin-top: -4px;
+	margin-top: -4px;
 }
 
 a,
@@ -94,5 +104,4 @@ label.date {
 	line-height: 32px;
 	@include color("neutral-500");
 	padding-left: 1em;
-  
 }

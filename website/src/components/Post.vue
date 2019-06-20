@@ -79,10 +79,6 @@ export default class Post extends Vue {
 <style lang="scss" scoped>
 @import "./../style/theme.scss";
 
-h2 {
-  display: inline-block;
-}
-
 .timestamp {
   padding-left: 16px;
   @include color("neutral-500");
@@ -104,5 +100,9 @@ aside {
   margin-top: 2em;
   padding-top: 0.5em;
   width: 50%;
+
+  a {
+    white-space: nowrap;
+  }
 }
 </style>
