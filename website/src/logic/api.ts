@@ -3,10 +3,12 @@ import { DataType } from "../logic/enums";
 import { HeaderData, LinkData, PostData, SummaryData } from "../logic/models";
 
 
-const linksPath = "http://api.rubenduiveman.nl/links.php";
-const postSummariesPath = "http://api.rubenduiveman.nl/posts.php";
+const protocol = (window.location.protocol.indexOf("https") > -1) ? "https://" : "http://";
+
+const linksPath = protocol + "api.rubenduiveman.nl/links.php";
+const postSummariesPath = protocol + "api.rubenduiveman.nl/posts.php";
 const postPath = postSummariesPath + "?id={{id}}";
-const caseStudySummariesPath = "http://api.rubenduiveman.nl/casestudies.php";
+const caseStudySummariesPath = protocol + "api.rubenduiveman.nl/casestudies.php";
 const caseStudyPath = caseStudySummariesPath + "?id={{id}}";
 
 // --
