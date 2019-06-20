@@ -51,7 +51,7 @@ export default class App extends Vue {
   opacity: 0;
 }
 
-@media screen and (min-width: 801px) {
+@media screen and (min-width: 601px) {
   #app {
     padding-top: 120px;
     min-height: calc(100% - 120px);
@@ -62,7 +62,7 @@ export default class App extends Vue {
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
   #app {
     padding-bottom: 64px;
     min-height: calc(100% - 64px);

@@ -169,14 +169,13 @@ $menu-height: 120px;
   .mainmenu .menu {
     position: fixed;
     width: 100%;
-    bottom: 64px;
     max-height: 0;
     @include background-color("neutral-0");
     border-bottom: 1px solid;
     @include border-color("neutral-100");
 
     overflow: hidden;
-    padding: 0.5em 0;
+    padding: 0.5em 4vw;
 
     &.visible {
       max-height: 1000px;
@@ -187,19 +186,10 @@ $menu-height: 120px;
     }
   }
 
-  .theme-light .menu {
-    box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.1);
-  }
-
-  .theme-dark .menu {
-    border-top: 1px solid;
-  }
-
   $menu-height: 64px;
 
   .mainmenu-container {
     height: $menu-height;
-    border-top: 1px solid;
     @include border-color("neutral-100");
   }
 
@@ -221,6 +211,44 @@ $menu-height: 120px;
 
   .link {
     line-height: $menu-height;
+  }
+}
+
+@media screen and (max-width: 800px) and (min-width: 601px) {
+  // main menu on top
+  .mainmenu-container {
+    border-bottom: 1px solid;
+  }
+
+  .mainmenu .menu {
+    top: 64px;
+  }
+
+  .theme-light .menu {
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .theme-dark .menu {
+    border-bottom: 1px solid;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  // main menu on bottom
+  .mainmenu-container {
+    border-top: 1px solid;
+  }
+
+  .mainmenu .menu {
+    bottom: 64px;
+  }
+
+  .theme-light .menu {
+    box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .theme-dark .menu {
+    border-top: 1px solid;
   }
 }
 </style>
