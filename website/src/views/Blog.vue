@@ -1,5 +1,5 @@
 <template>
-  <Summaries />
+  <Summaries type="blog"/>
 </template>
 
 <script lang="ts">
@@ -12,5 +12,5 @@ import Summaries from "@/components/Summaries.vue";
     Summaries
   }
 })
-export default class Blog extends Vue { }
+export default class Blog extends Vue {}
 </script>

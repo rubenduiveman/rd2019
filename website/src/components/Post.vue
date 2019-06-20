@@ -16,11 +16,13 @@ import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 import PostHeader from "@/components/PostHeader.vue";
 
 import * as Api from "../logic/api";
+import { DataType } from "../logic/enums";
 import { PostData } from "../logic/models";
 
 @Component({ components: { PostHeader } })
 export default class Post extends Vue {
   @Prop() private id!: string;
+  @Prop() private type!: DataType;
 
   private postData: PostData | null = null;
 
@@ -48,17 +50,28 @@ export default class Post extends Vue {
   }
 
   public async beforeMount() {
-    this.postData = await Api.getPost(this.id);
+    this.loadPost();
   }
 
   @Watch("id")
   private async onIdChanged() {
-    this.postData = await Api.getPost(this.id);
+    this.loadPost();
   }
 
   @Watch("postData")
   private onPostDataChanged() {
     window.scrollTo(0, 0);
+  }
+
+  private async loadPost() {
+    switch (this.type) {
+      case DataType.CASESTUDIES:
+        this.postData = await Api.getCaseStudy(this.id);
+        break;
+      default:
+        this.postData = await Api.getPost(this.id);
+        break;
+    }
   }
 }
 </script>

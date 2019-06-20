@@ -1,7 +1,7 @@
 <template>
   <div class="posts">
     <Section class="post" type="even">
-      <Post :id="activePostId"/>
+      <Post :id="activePostId" :type="type"/>
     </Section>
     <Section v-if="earlier || newer" type="odd">
       <Teaser :data="earlier">Earlier post</Teaser>
@@ -19,6 +19,7 @@ import Section from "@/components/Section.vue";
 import Teaser from "@/components/Teaser.vue";
 
 import * as Api from "@/logic/api";
+import { DataType } from "@/logic/enums";
 import { SummaryData } from "@/logic/models";
 
 @Component({
@@ -34,6 +35,7 @@ export default class Posts extends Vue {
   // TODO: show previous post summary but scroll view to start at current post
 
   @Prop() private startId!: string;
+  @Prop() private type!: DataType;
 
   private activePostId = this.startId;
   private summaries: SummaryData[] = [];
@@ -56,7 +58,15 @@ export default class Posts extends Vue {
   }
 
   public async beforeMount() {
-    this.summaries = await Api.getSummaries();
+    switch (this.type) {
+      case DataType.CASESTUDIES:
+        this.summaries = await Api.getCaseStudySummaries();
+        break;
+      case DataType.BLOG:
+      default:
+        this.summaries = await Api.getPostSummaries();
+        break;
+    }
   }
 
   @Watch("startId")

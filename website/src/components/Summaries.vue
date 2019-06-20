@@ -12,12 +12,13 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue } from "vue-property-decorator";
 
 import Section from "@/components/Section.vue";
 import Summary from "@/components/Summary.vue";
 
 import * as Api from "@/logic/api";
+import { DataType } from "@/logic/enums";
 import { SummaryData } from "@/logic/models";
 
 @Component({
@@ -27,10 +28,20 @@ import { SummaryData } from "@/logic/models";
   }
 })
 export default class Summaries extends Vue {
+  @Prop() private type!: DataType;
+
   private summaries: SummaryData[] = [];
 
   public async beforeMount() {
-    this.summaries = await Api.getSummaries();
+    switch (this.type) {
+      case DataType.CASESTUDIES:
+        this.summaries = await Api.getCaseStudySummaries();
+        break;
+      case DataType.BLOG:
+      default:
+        this.summaries = await Api.getPostSummaries();
+        break;
+    }
 
     const footerAccent = this.summaries.length % 2 === 0 ? "odd" : "even";
     this.$store.commit("setFooterAccent", footerAccent);

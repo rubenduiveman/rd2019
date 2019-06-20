@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
+import { DataType } from "./logic/enums";
 import Home from "./views/Home.vue";
 
 Vue.use(Router);
@@ -47,6 +48,7 @@ export default new Router({
             path: "/post/:id/:title",
             alias: "/post/:id/",
             name: "post",
+            meta: { type: DataType.BLOG },
             component: () => import(/* webpackChunkName: "post" */ "./views/Post.vue")
         },
         {
