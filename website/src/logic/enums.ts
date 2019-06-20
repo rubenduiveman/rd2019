@@ -3,3 +3,8 @@ export enum SectionType {
     EVEN = "even",
     ACCENTED = "accented"
 }
+
+export enum DataType {
+    BLOG = "blog",
+    CASESTUDIES = "casestudies"
+}
