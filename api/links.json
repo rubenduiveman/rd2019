@@ -22,5 +22,11 @@
         "url": "https://uxdesign.cc/what-it-takes-to-be-a-product-designer-424a4151261e",
         "date": "Jun 04, 2019",
         "description": "This article tries to define what a product designer actually does, without talking other roles down. From the excellent [twitter thread](https://twitter.com/round/status/1062407835760226306?s=19) by [Maxim](https://twitter.com/round)."
+    },
+    {
+        "title": "Not everything needs to be a user story",
+        "url": "https://www.mountaingoatsoftware.com/blog/not-everything-needs-to-be-a-user-story-using-fdd-features",
+        "date": "Jun 06, 2019",
+        "description": "This article proposes that when user stories don't fit the task on your backlog, [Feature Driven Development](https://en.wikipedia.org/wiki/Feature-driven_development) might. This is a great alternative for classic [User Stories](https://en.wikipedia.org/wiki/User_story) or something like [Hypothesis-Driven Development](https://www.thoughtworks.com/insights/blog/how-implement-hypothesis-driven-development)."
     }
 ]
