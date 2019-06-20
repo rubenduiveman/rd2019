@@ -1,18 +1,40 @@
 import { ajax, parseHtml } from "@/logic/helpers";
+import { DataType } from "../logic/enums";
 import { HeaderData, LinkData, PostData, SummaryData } from "../logic/models";
 
+
 const linksPath = "http://api.rubenduiveman.nl/links.php";
-const summariesPath = "http://api.rubenduiveman.nl/posts.php";
-const postPath = summariesPath + "?id={{id}}";
+const postSummariesPath = "http://api.rubenduiveman.nl/posts.php";
+const postPath = postSummariesPath + "?id={{id}}";
+const caseStudySummariesPath = "http://api.rubenduiveman.nl/posts.php";
+const caseStudyPath = caseStudySummariesPath + "?id={{id}}";
 
 // --
 
-export async function getSummaries(): Promise<SummaryData[]> {
-    const summaryDatas = await ajax<SummaryData[]>(summariesPath);
+export async function getCaseStudySummaries(): Promise<SummaryData[]> {
+    const summaryDatas = await ajax<SummaryData[]>(caseStudySummariesPath);
 
     // enrich the summaries with clientside info
     const summaries = summaryDatas.map((summaryData) => {
-        return enrichHeaderData(summaryData) as SummaryData;
+        return enrichHeaderData(DataType.CASESTUDIES, summaryData) as SummaryData;
+    });
+
+    return summaries.sort((a, b) => {
+        return b.clientDate.getTime() - a.clientDate.getTime();
+    });
+}
+
+export async function getCaseStudy(id: string): Promise<PostData> {
+    const postData = await ajax<PostData>(caseStudyPath.replace("{{id}}", id));
+    return enrichPost(DataType.CASESTUDIES, postData) as PostData;
+}
+
+export async function getPostSummaries(): Promise<SummaryData[]> {
+    const summaryDatas = await ajax<SummaryData[]>(postSummariesPath);
+
+    // enrich the summaries with clientside info
+    const summaries = summaryDatas.map((summaryData) => {
+        return enrichHeaderData(DataType.BLOG, summaryData) as SummaryData;
     });
 
     return summaries.sort((a, b) => {
@@ -22,7 +44,7 @@ export async function getSummaries(): Promise<SummaryData[]> {
 
 export async function getPost(id: string): Promise<PostData> {
     const postData = await ajax<PostData>(postPath.replace("{{id}}", id));
-    return enrichPost(postData) as PostData;
+    return enrichPost(DataType.BLOG, postData) as PostData;
 }
 
 export async function getLinks(): Promise<LinkData[]> {
@@ -32,30 +54,41 @@ export async function getLinks(): Promise<LinkData[]> {
 
 // --
 
-function enrichPost(data: PostData): PostData {
+function enrichPost(type: DataType, data: PostData): PostData {
     return {
-        ...enrichHeaderData(data),
+        ...enrichHeaderData(type, data),
         content: parseHtml(data.content)
     };
 }
 
-function enrichHeaderData(data: HeaderData): HeaderData {
+function enrichHeaderData(type: DataType, data: HeaderData): HeaderData {
     return {
         ...data,
-        clientUrl: getClientUrl(data),
-        shareUrl: getShareUrl(data),
+        clientUrl: getClientUrl(type, data),
+        shareUrl: getShareUrl(type, data),
         clientDate: parseDate(data)
     };
 }
 
-function getClientUrl(data: HeaderData): string {
+function getClientUrl(type: DataType, data: HeaderData): string {
     // client URL is not passed from the server
-    return `/post/${data.id}/${parseTitle(data.title)}`;
+    switch (type) {
+        case DataType.BLOG:
+            return `/post/${data.id}/${parseTitle(data.title)}`;
+        case DataType.CASESTUDIES:
+            return `/casestudy/${data.id}/${parseTitle(data.title)}`;
+    }
 }
 
-function getShareUrl(data: HeaderData): string {
+function getShareUrl(type: DataType, data: HeaderData): string {
     // share URL is not passed from the server
-    return `${window.location.origin}/#/post/${data.id}`;
+    switch (type) {
+        case DataType.BLOG:
+            return `${window.location.origin}/#/post/${data.id}`;
+        case DataType.CASESTUDIES:
+            return `${window.location.origin}/#/casestudy/${data.id}`;
+    }
+
 }
 
 function parseDate(data: HeaderData) {
