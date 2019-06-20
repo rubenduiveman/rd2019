@@ -36,8 +36,8 @@ export default new Router({
             redirect: "/casestudies"
         },
         {
-            path: "/casestudy/:id/:title",
-            alias: "/casestudy/:id/",
+            path: "/casestudy/:id/",
+            alias: "/casestudy/:id/:title",
             name: "casestudy",
             meta: { type: DataType.CASESTUDIES },
             component: () => import(/* webpackChunkName: "post" */ "./views/Post.vue")
@@ -56,8 +56,8 @@ export default new Router({
             redirect: "/blog"
         },
         {
-            path: "/post/:id/:title",
-            alias: "/post/:id/",
+            path: "/post/:id/",
+            alias: "/post/:id/:title",
             name: "post",
             meta: { type: DataType.BLOG },
             component: () => import(/* webpackChunkName: "post" */ "./views/Post.vue")
