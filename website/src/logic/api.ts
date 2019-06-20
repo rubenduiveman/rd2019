@@ -6,7 +6,7 @@ import { HeaderData, LinkData, PostData, SummaryData } from "../logic/models";
 const linksPath = "http://api.rubenduiveman.nl/links.php";
 const postSummariesPath = "http://api.rubenduiveman.nl/posts.php";
 const postPath = postSummariesPath + "?id={{id}}";
-const caseStudySummariesPath = "http://api.rubenduiveman.nl/posts.php";
+const caseStudySummariesPath = "http://api.rubenduiveman.nl/casestudies.php";
 const caseStudyPath = caseStudySummariesPath + "?id={{id}}";
 
 // --

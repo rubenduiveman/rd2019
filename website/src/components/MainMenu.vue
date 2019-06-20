@@ -7,7 +7,7 @@
         <router-link :to="{ name: 'home' }" class="link">home</router-link>
         <router-link :to="{ name: 'vision' }" class="link">vision</router-link>
         <router-link :to="{ name: 'timeline' }" class="link">timeline</router-link>
-        <!-- <router-link :to="{ name: 'case-studies' }" class="link">case studies</router-link> -->
+        <router-link :to="{ name: 'casestudies' }" class="link">case studies</router-link>
         <router-link :to="{ name: 'blog' }" class="link">blog</router-link>
         <router-link :to="{ name: 'links' }" class="link">links</router-link>
       </div>
@@ -144,7 +144,7 @@ $menu-height: 120px;
   @include themify-nested(".is-scrolled", "border-color", "neutral-100");
 }
 
-@media screen and (min-width: 681px) {
+@media screen and (min-width: 801px) {
   .menu-toggle {
     display: none;
   }
@@ -161,7 +161,7 @@ $menu-height: 120px;
   }
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 800px) {
   .menu:not(.visible) {
     display: none;
   }

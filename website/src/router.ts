@@ -26,11 +26,22 @@ export default new Router({
             path: "/now",
             redirect: "/timeline"
         },
-        // {
-        //     path: "/case-studies",
-        //     name: "case-studies",
-        //     component: () => import(/* webpackChunkName: "case-studies" */ "./views/CaseStudies.vue")
-        // },
+        {
+            path: "/casestudies",
+            name: "casestudies",
+            component: () => import(/* webpackChunkName: "case-studies" */ "./views/CaseStudies.vue")
+        },
+        {
+            path: "/casestudy",
+            redirect: "/casestudies"
+        },
+        {
+            path: "/casestudy/:id/:title",
+            alias: "/casestudy/:id/",
+            name: "casestudy",
+            meta: { type: DataType.CASESTUDIES },
+            component: () => import(/* webpackChunkName: "post" */ "./views/Post.vue")
+        },
         {
             path: "/blog",
             name: "blog",
