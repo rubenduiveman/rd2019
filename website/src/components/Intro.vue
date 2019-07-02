@@ -40,7 +40,7 @@ export default class Intro extends Vue {
   private IFSCaseStudyUrl = "";
 
   public async beforeMount() {
-    const study = await Api.getCaseStudy("0");
+    const study = await Api.getCaseStudy("2019-06-19");
     this.IFSCaseStudyUrl = study.clientUrl;
   }
 }
