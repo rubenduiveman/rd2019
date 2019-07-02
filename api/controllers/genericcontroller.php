@@ -5,40 +5,44 @@ class GenericController
 {
     public static function get_single($globpath, $post_id)
     {
-        try {
-            $posts = GenericController::get_parsed_posts($globpath);
+        $posts = GenericController::get_posts_meta($globpath, true, null, $post_id);
 
-            if (!isset($posts[$post_id])) {
-                echo "post with id " . $post_id . " not found";
-                die();
-            }
-
-            include_once 'models/Post.php';
-
-            $meta = GenericController::get_post_meta($posts[$post_id], $post_id);
-
-            $post = new Post();
-            $post->id = $post_id;
-            $post->title = $meta['title'];
-            $post->content = htmlspecialchars($posts[$post_id]->getContent());
-            $post->url = $meta['url'];
-            $post->date = $meta['date'];
-            $post->summary = $meta['summary'];
-
-            return $post;
-        } catch (Exception $e) {
-            echo 'Caught exception: ', $e->getMessage();
+        if (!isset($posts[$post_id])) {
+            echo "post with id '" . $post_id . "' not found";
             die();
         }
+
+        return $posts[$post_id];
     }
 
     public static function get_summaries($globpath, $tag = null)
+    {
+        return GenericController::get_posts_meta($globpath, false, $tag);
+    }
+
+    // -- Helpers
+
+    private static function get_posts_meta($globpath, $include_content = false, $tag = null, $post_id = null)
     {
         $posts = GenericController::get_parsed_posts($globpath);
 
         $metadatas = array();
         foreach ($posts as $key => $post) {
-            $metadatas[] = GenericController::get_post_meta($post, $key);
+            $metadata = GenericController::get_post_meta($post);
+            $date = $metadata['date'];
+
+            if ($post_id != null && $metadata['id'] != $post_id) {
+                continue;
+            }
+
+            if ($include_content) {
+                $metadata['content'] = htmlspecialchars($post->getContent());
+            }
+
+            // only allow posts that have a date
+            if ($date) {
+                $metadatas[$date] = $metadata;
+            }
         }
 
         if ($tag != null) {
@@ -51,15 +55,13 @@ class GenericController
         return $metadatas;
     }
 
-    // -- Helpers
-
-    private static function get_post_meta($post, $id)
+    private static function get_post_meta($post)
     {
         $self = str_replace("/index.php", "", $_SERVER['PHP_SELF']);
 
         $meta = $post->getYAML();
-        $meta['url'] = 'http://' . $_SERVER['HTTP_HOST'] . $self . '?id=' . $id;
-        $meta['id'] = $id;
+        $meta['url'] = 'http://' . $_SERVER['HTTP_HOST'] . $self . '?id=' . $meta['date'];
+        $meta['id'] = $meta['date'];
         return $meta;
     }
 
