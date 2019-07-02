@@ -17,7 +17,7 @@ class GenericController
 
     public static function get_summaries($globpath, $tag = null)
     {
-        return GenericController::get_posts_meta($globpath, false, $tag);
+        return array_values(GenericController::get_posts_meta($globpath, false, $tag));
     }
 
     // -- Helpers
