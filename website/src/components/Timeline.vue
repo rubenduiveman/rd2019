@@ -3,8 +3,8 @@
     <h2>Timeline</h2>
     <ul>
       <li>
-        <label class="life">LIFE</label><label class="date">DEC 2018</label>
-        <p class="desc">We're expecting! A baby girl will be added to our little family halfway June 2019.</p>
+        <label class="life">LIFE</label><label class="date">JUN 2019</label>
+        <p class="desc">It's a girl! Our little family has grown to four because Linde arrived. She's doing fantastic!</p>
       </li>
       <li>
         <label class="work">WORK</label><label class="date">OCT 2018</label>
