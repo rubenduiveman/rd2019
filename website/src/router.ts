@@ -40,7 +40,18 @@ export default new Router({
             alias: "/casestudy/:id/:title",
             name: "casestudy",
             meta: { type: DataType.CASESTUDIES },
-            component: () => import(/* webpackChunkName: "post" */ "./views/Post.vue")
+            component: () => import(/* webpackChunkName: "post" */ "./views/Post.vue"),
+            beforeEnter: (to, from, next) => {
+                const postId = parseInt(to.params.id, 10);
+
+                if (postId === 0) {
+                    // Redirect from old post id mechanism
+                    next({ path: `/casestudy/2019-06-19/`, replace: true });
+                    return;
+                }
+
+                next();
+            }
         },
         {
             path: "/blog",
