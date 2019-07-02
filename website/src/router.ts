@@ -60,7 +60,29 @@ export default new Router({
             alias: "/post/:id/:title",
             name: "post",
             meta: { type: DataType.BLOG },
-            component: () => import(/* webpackChunkName: "post" */ "./views/Post.vue")
+            component: () => import(/* webpackChunkName: "post" */ "./views/Post.vue"),
+            beforeEnter: (to, from, next) => {
+                const postId = parseInt(to.params.id, 10);
+                const postsMap = [
+                    "2019-01-10",
+                    "2019-01-16",
+                    "2019-01-17",
+                    "2019-01-21",
+                    "2019-01-23",
+                    "2019-02-05",
+                    "2019-04-03",
+                    "2019-06-22",
+                    "2019-06-30"
+                ];
+
+                if (postId < 9) {
+                    // Redirect from old post id mechanism
+                    next({ path: `/post/${postsMap[postId]}/`, replace: true });
+                    return;
+                }
+
+                next();
+            }
         },
         {
             path: "/links",
