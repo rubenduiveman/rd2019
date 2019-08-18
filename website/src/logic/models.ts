@@ -23,3 +23,14 @@ export interface LinkData {
     date: string;
     description: string;
 }
+
+export interface DesignServerData {
+    name: string;
+    description: string;
+    coverImageUrl: string;
+    seriesUrls: string[];
+}
+
+export interface DesignData extends DesignServerData {
+    urlName: string;
+}

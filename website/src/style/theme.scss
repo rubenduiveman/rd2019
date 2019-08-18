@@ -2,6 +2,7 @@ $themes: (
 	light: (
 		neutral-0: #fff,
 		neutral-100: #f2f2f2,
+		neutral-200: #e2e2e2,
 		neutral-500: #999,
 		neutral-900: #212121,
 		primary-500: #ea6645,
@@ -15,6 +16,7 @@ $themes: (
 	dark: (
 		neutral-0: #000,
 		neutral-100: #212121,
+		neutral-200: #343434,
 		neutral-500: #454545,
 		neutral-900: #afafaf,
 		primary-500: #ea6645,
@@ -120,4 +122,9 @@ $themes: (
 /// @see {mixin} themify
 @mixin background-color($arguments...) {
 	@include themify("background-color", $arguments...);
+}
+
+@mixin theme-color($themeName, $propertyName, $colorName) {
+	$theme: map-get($themes, $themeName);
+	#{$propertyName}: map-get($theme, $colorName);
 }

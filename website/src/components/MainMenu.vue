@@ -9,6 +9,7 @@
         <router-link :to="{ name: 'timeline' }" class="link">timeline</router-link>
         <router-link :to="{ name: 'casestudies' }" class="link">case studies</router-link>
         <router-link :to="{ name: 'blog' }" class="link">blog</router-link>
+        <router-link :to="{ name: 'designs' }" class="link">design</router-link>
         <router-link :to="{ name: 'links' }" class="link">links</router-link>
       </div>
       <div class="theme-switcher" @click="switchTheme"></div>
@@ -144,7 +145,7 @@ $menu-height: 120px;
   @include themify-nested(".is-scrolled", "border-color", "neutral-100");
 }
 
-@media screen and (min-width: 801px) {
+@media screen and (min-width: 881px) {
   .menu-toggle {
     display: none;
   }
@@ -161,7 +162,7 @@ $menu-height: 120px;
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 880px) {
   .menu:not(.visible) {
     display: none;
   }
@@ -214,7 +215,7 @@ $menu-height: 120px;
   }
 }
 
-@media screen and (max-width: 800px) and (min-width: 601px) {
+@media screen and (max-width: 880px) and (min-width: 601px) {
   // main menu on top
   .mainmenu-container {
     border-bottom: 1px solid;

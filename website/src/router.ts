@@ -99,6 +99,16 @@ export default new Router({
             path: "/links",
             name: "links",
             component: () => import(/* webpackChunkName: "links" */ "./views/Links.vue")
+        },
+        {
+            path: "/design",
+            name: "designs",
+            component: () => import(/* webpackChunkName: "case-studies" */ "./views/Designs.vue")
+        },
+        {
+            path: "/design/:name",
+            name: "design",
+            component: () => import(/* webpackChunkName: "case-studies" */ "./views/Design.vue")
         }
     ],
 });
